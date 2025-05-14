@@ -13,13 +13,14 @@ type (
 		Description string
 		AreaName    string
 		UnitMeasure string
-		Quantity    string
+		Quantity    uint64
+		UnitValue   uint64
 		Total       uint64
 	}
 
 	Totals struct {
-		AreasTotais float64
-		Discount    float64
+		AreasTotais uint64
+		Discount    uint64
 	}
 
 	Entity struct {

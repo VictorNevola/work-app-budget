@@ -25,5 +25,10 @@ func (p *QuoteRepository) Create(ctx context.Context, quote *quote.Entity) error
 	model.NewID()
 	model.SetCreatedAt()
 
+	_, err := p.dbCollection.InsertOne(ctx, model)
+	if err != nil {
+		return err
+	}
+
 	return nil
 }

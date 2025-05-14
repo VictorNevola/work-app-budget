@@ -7,10 +7,10 @@ import (
 
 type (
 	Entity struct {
-		ID      int
-		Name    string
-		TaxID   string
-		Address address.Entity
-		Contact contact.Entity
+		CompanyID int
+		Name      string
+		TaxID     string
+		Address   address.Entity
+		Contact   contact.Entity
 	}
 )
