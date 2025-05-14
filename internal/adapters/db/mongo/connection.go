@@ -1,4 +1,4 @@
-package database
+package mongo
 
 import (
 	"context"
@@ -8,12 +8,12 @@ import (
 )
 
 type (
-	Database struct {
+	Connection struct {
 		*mongo.Database
 	}
 )
 
-func NewMongoDB() (*Database, func()) {
+func NewMongoDB() (*Connection, func()) {
 	uri := "mongodb://root:example@localhost:27017/"
 	mainDatabase := "work-app-budget"
 
@@ -30,7 +30,7 @@ func NewMongoDB() (*Database, func()) {
 		client.Disconnect(context.TODO())
 	}
 
-	return &Database{
+	return &Connection{
 		Database: client.Database(mainDatabase),
 	}, disconnectFunction
 }

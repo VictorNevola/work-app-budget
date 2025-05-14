@@ -1,4 +1,4 @@
-package project
+package quote
 
 import (
 	"time"
@@ -29,10 +29,10 @@ type (
 		CreatedAt           time.Time
 		UpdatedAt           time.Time
 		Status              Status
-		Areas               AreasValues
+		Areas               []AreasValues
 		Totals              Totals
 		Company             company.Entity
 		Customer            customer.Entity
-		Materials           material.Entity
+		Materials           []material.Entity
 	}
 )
