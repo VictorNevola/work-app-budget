@@ -16,7 +16,7 @@ type (
 		EstimatedFinishDate string           `json:"estimated_finish_date" validate:"required,datetime=2006-01-02"`
 		Company             CompanyDTO       `json:"company" validate:"required"`
 		Customer            CustomerDTO      `json:"customer" validate:"required"`
-		Discount            uint64           `json:"discount" validate:"min=0"`
+		Discount            int64            `json:"discount" validate:"min=0"`
 		Areas               []AreasValuesDTO `json:"areas" validate:"dive"`
 		Materials           []MaterialDTO    `json:"materials" validate:"dive"`
 	}
@@ -56,14 +56,14 @@ type (
 		Description string `json:"description" validate:"required,min=5,max=100"`
 		AreaName    string `json:"area_name" validate:"required,min=2,max=50"`
 		UnitMeasure string `json:"unit_measure" validate:"required,min=1,max=10"`
-		Quantity    uint64 `json:"quantity" validate:"required"`
-		UnitValue   uint64 `json:"unit_value" validate:"required,min=0"`
+		Quantity    int64  `json:"quantity" validate:"required"`
+		UnitValue   int64  `json:"unit_value" validate:"required,min=0"`
 	}
 
 	MaterialDTO struct {
 		Name        string `json:"name" validate:"required,min=2,max=100"`
 		UnitMeasure string `json:"unit_measure" validate:"required,min=1,max=10"`
-		Quantity    uint64 `json:"quantity" validate:"required"`
+		Quantity    int64  `json:"quantity" validate:"required"`
 	}
 )
 
@@ -148,6 +148,7 @@ func (dto *CreateDTO) ToEntity() (*Entity, error) {
 		Description:         dto.Description,
 		EstimatedInitDate:   *initDate,
 		EstimatedFinishDate: *finishDate,
+		Discount:            dto.Discount,
 		Status:              Pending,
 		Areas:               areas,
 		Company:             companyEntity,

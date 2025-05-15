@@ -22,6 +22,11 @@ func (s *service) Create(ctx context.Context, quoteDTO *CreateDTO) error {
 		return ErrInternalServer
 	}
 
+	err = entity.CalcTotals()
+	if err != nil {
+		return err
+	}
+
 	err = s.repo.Create(ctx, entity)
 	if err != nil {
 		return ErrInternalServer

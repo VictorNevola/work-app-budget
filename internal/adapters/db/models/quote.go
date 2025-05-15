@@ -11,13 +11,13 @@ type (
 		Description string `bson:"description"`
 		AreaName    string `bson:"area_name"`
 		UnitMeasure string `bson:"unit_measure"`
-		Quantity    uint64 `bson:"quantity"`
-		Total       uint64 `bson:"total"`
+		Quantity    int64  `bson:"quantity"`
+		Total       int64  `bson:"total"`
 	}
 
 	Totals struct {
-		AreasTotais uint64 `bson:"areas_totais"`
-		Discount    uint64 `bson:"discount"`
+		AreasTotais int64 `bson:"areas_totais"`
+		Discount    int64 `bson:"discount"`
 	}
 
 	Customer struct {
@@ -30,7 +30,7 @@ type (
 	Material struct {
 		Name        string `bson:"name"`
 		UnitMeasure string `bson:"unit_measure"`
-		Quantity    uint64 `bson:"quantity"`
+		Quantity    int64  `bson:"quantity"`
 	}
 
 	Company struct {

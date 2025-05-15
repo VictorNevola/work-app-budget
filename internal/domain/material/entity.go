@@ -4,6 +4,6 @@ type (
 	Entity struct {
 		Name        string
 		UnitMeasure string
-		Quantity    uint64
+		Quantity    int64
 	}
 )
